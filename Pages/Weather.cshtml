@@ -1,0 +1,41 @@
+@page
+@{
+    ViewData["Title"] = "System Info";
+}
+
+<div class="card mb-3">
+  <div class="card-header bg-info text-white"> <i class="fas fa-cloud-sun-rain"></i> Weather</div>
+  <div class="card-body">
+    <!-- Message box -->
+    <div class="alert alert-danger fade" role="alert" id="errorBox" style="color: #222"></div>
+    
+    <!-- Spinner to show while loading -->
+    <p align="center" id="spinner">
+      <img src="img/spinner.gif" >
+    </p>
+
+    <table>
+      <tr>
+        <td> 
+          <!-- Used by skycons.js to show an animated weather icon -->
+          <canvas id="weather_icon" width="256" height="256"></canvas> 
+        </td>
+        <td class="weather-info">
+          <!-- Table populated with results -->
+          <ul id="weather-list"></ul>
+        </td>
+      </tr>
+    </table>  
+
+  </div>
+</div>
+
+<div>
+<img src="img/darksky.png" height="64px"/>
+</div>
+
+<!-- skycons script, see https://darkskyapp.github.io/skycons/  -->
+<script src='js/skycons.js'></script>
+
+<!-- Our main weather script for calling the API and displaying results -->
+<script src='js/weather.js'></script>
