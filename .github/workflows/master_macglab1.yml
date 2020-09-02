@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'macglab1'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_25c2cb98517b46dda2fc550f12516e3f }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2f77fde0fb314b59a5f8733a5d30e91f }}
         package: ${{env.DOTNET_ROOT}}/myapp 
