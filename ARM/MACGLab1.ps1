@@ -7,15 +7,16 @@
 
 $nombre = "MACGLab1"
 $grupo = "MACGLab1"
-$ubicacion = "westus"
-$archivo = "C:\Users\abner\Documents\Workspace\.NET\Net Core Demo\ARM\MACGLab1.json"
-$archivoParametros = "C:\Users\abner\Documents\Workspace\.NET\Net Core Demo\ARM\MACGLab1.parameters.json"
+$ubicacion = "Central US"
+$archivo = "MACGLab1.json"
+$archivoParametros = "MACGLab1.parameters.json"
 
 #Crea el grupo de recursos en Azure
-New-AzResourceGroup -Name $grupo -Location $ubicacion
+az group create --name $grupo --location $ubicacion
 
 # Crea los recursos de la plantilla en el archivo JSON
-New-AzResourceGroupDeployment -Name $nombre `
-  -ResourceGroupName $grupo `
-  -TemplateFile $archivo `
-  -TemplateParameterFile $archivoParametros
+az deployment group create `
+  --name $nombre `
+  --resource-group $grupo `
+  --template-file $archivo `
+  --parameters $archivoParametros
